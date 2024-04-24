@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 
 // Configuration
 $bucketName = "bucketName";
-$uploadUrl = "uploading.php";
+$uploadUrl = "curl_uploading.php";
 $uploadDir = 'uploads/';
 
 // Check if file is uploaded

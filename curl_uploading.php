@@ -19,16 +19,18 @@ $client = S3Client::factory([
     'version' => 'latest',
 ]);
 $response = array();
+$bucketName = isset($_POST['bucket_name']) ? $_POST['bucket_name'] : "bucket_name";
+$filePathInBucket = isset($_POST['file_path_in_bucket']) ? $_POST['file_path_in_bucket'] : "";
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
 // echo "<pre>";
 // print_r($_FILES);
 // echo "</pre>";die;
 if (!empty($_FILES['file'])) {
 
     try {
-        // Specify the bucket name and file path
-        $fileName = $_FILES['file']['name'];
-        $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
-        $filePathInBucket =  md5(uniqid(mt_rand())).'.'.$fileExtension; // Adjust this as needed
+        
         $result = $client->putObject([
             'Bucket' => $bucketName,
             'Key' => $filePathInBucket,
