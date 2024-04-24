@@ -59,7 +59,6 @@ if ($response === null) {
     echo "Error: " . curl_error($ch);
     unlink($filepath);
 } 
-
 else {
     print_r($response);
 }
